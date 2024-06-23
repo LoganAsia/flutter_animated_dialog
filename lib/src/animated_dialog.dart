@@ -640,34 +640,37 @@ class CustomDialog extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final DialogTheme dialogTheme = DialogTheme.of(context);
-    return AnimatedPadding(
-      padding: MediaQuery.of(context).viewInsets +
-          const EdgeInsets.symmetric(horizontal: 40.0, vertical: 24.0),
-      duration: insetAnimationDuration,
-      curve: insetAnimationCurve,
-      child: MediaQuery.removeViewInsets(
-        removeLeft: true,
-        removeTop: true,
-        removeRight: true,
-        removeBottom: true,
-        context: context,
-        child: Center(
-          child: ConstrainedBox(
-            constraints: BoxConstraints(minWidth: minWidth ?? 280.0),
-            child: Material(
-              color: backgroundColor ??
-                  dialogTheme.backgroundColor ??
-                  Theme.of(context).dialogBackgroundColor,
-              elevation:
-                  elevation ?? dialogTheme.elevation ?? _defaultElevation,
-              shape: shape ?? dialogTheme.shape ?? _defaultDialogShape,
-              type: MaterialType.card,
-              child: child,
-            ),
+  // Ensure context is not null
+  assert(context != null, 'BuildContext cannot be null');
+
+  final DialogTheme dialogTheme = DialogTheme.of(context);
+  return AnimatedPadding(
+    padding: MediaQuery.of(context).viewInsets +
+        const EdgeInsets.symmetric(horizontal: 40.0, vertical: 24.0),
+    duration: insetAnimationDuration,
+    curve: insetAnimationCurve,
+    child: MediaQuery.removeViewInsets(
+      removeLeft: true,
+      removeTop: true,
+      removeRight: true,
+      removeBottom: true,
+      context: context,
+      child: Center(
+        child: ConstrainedBox(
+          constraints: BoxConstraints(minWidth: minWidth ?? 280.0),
+          child: Material(
+            color: backgroundColor ??
+                dialogTheme.backgroundColor ??
+                Theme.of(context).dialogBackgroundColor,
+            elevation:
+                elevation ?? dialogTheme.elevation ?? _defaultElevation,
+            shape: shape ?? dialogTheme.shape ?? _defaultDialogShape,
+            type: MaterialType.card,
+            child: child,
           ),
         ),
       ),
-    );
-  }
+    ),
+  );
+}
 }
