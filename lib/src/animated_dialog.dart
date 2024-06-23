@@ -66,19 +66,20 @@ enum DialogTransitionType {
   none,
 }
 
-/// Displays a Material dialog above the current contents of the app
+/// Displays a Material dialog above the current contents of the app - Updated
 Future<T> showAnimatedDialog<T>({
-  @required BuildContext context,
+  required BuildContext context,
   bool barrierDismissible = false,
-  @required WidgetBuilder builder,
-  animationType = DialogTransitionType.fade,
+  required WidgetBuilder builder,
+  DialogTransitionType animationType = DialogTransitionType.fade,
   Curve curve = Curves.linear,
-  Duration duration,
+  Duration? duration,
   AlignmentGeometry alignment = Alignment.center,
-  Axis axis,
+  Axis? axis,
 }) {
-  assert(builder != null);
-  assert(debugCheckHasMaterialLocalizations(context));
+  assert(context != null, 'A non-null BuildContext must be provided.');
+  assert(builder != null, 'A non-null WidgetBuilder must be provided.');
+  assert(debugCheckHasMaterialLocalizations(context), 'MaterialLocalizations are required.');
 
   final ThemeData theme = Theme.of(context);
 
