@@ -332,6 +332,7 @@ Future<T> showAnimatedDialog<T>({
 class CustomDialogWidget extends StatelessWidget {
   
   // Updated Key parameter to ensure that the parameter is always provided and is not null
+  // Updated titleText parameter to ensure that the parameter is always provided and is not null
   const CustomDialogWidget({
     required Key key,
     required this.titleText,
