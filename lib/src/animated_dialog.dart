@@ -334,6 +334,7 @@ class CustomDialogWidget extends StatelessWidget {
   // Updated Key parameter to ensure that the parameter is always provided and is not null
   const CustomDialogWidget({
     required Key key,
+    required this.titleText,
     this.title,
     this.titlePadding,
     this.titleTextStyle,
@@ -350,7 +351,8 @@ class CustomDialogWidget extends StatelessWidget {
   })  : assert(contentPadding != null),
         super(key: key);
 
-final Key key;
+  final Key key;
+  final String titleText;
   final Widget? title;
   final EdgeInsetsGeometry? titlePadding;
   final TextStyle? titleTextStyle;
