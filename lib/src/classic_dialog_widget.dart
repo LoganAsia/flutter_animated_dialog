@@ -80,7 +80,7 @@ class ClassicGeneralDialogWidget extends StatelessWidget {
               titleText,
               style: Theme.of(context).dialogTheme.titleTextStyle,
             )
-          : null,
+          : "",
       content: contentText != null
           ? Text(
               contentText,
@@ -292,7 +292,7 @@ class ClassicListDialogWidgetState<T> extends State<ClassicListDialogWidget> {
               widget.titleText,
               style: Theme.of(context).dialogTheme.titleTextStyle,
             )
-          : null,
+          : "",
       contentPadding: EdgeInsets.all(0.0),
       content: contentWidget,
       actions: widget.actions ??
