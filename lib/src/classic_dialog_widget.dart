@@ -56,16 +56,31 @@ class ClassicGeneralDialogWidget extends StatelessWidget {
     this.onPositiveClick,
   });
 
+    final String titleText; // Make titleText non-nullable
+    final String? contentText;
+    final List<Widget>? actions;
+    final String? negativeText;
+    final String? positiveText;
+    final TextStyle? negativeTextStyle;
+    final TextStyle? positiveTextStyle;
+    final VoidCallback? onNegativeClick;
+    final VoidCallback? onPositiveClick;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return CustomDialogWidget(
-      title: titleText != null
-          ? Text(
-              titleText,
-              style: Theme.of(context).dialogTheme.titleTextStyle,
-            )
-          : null,
+      title: Text(
+        titleText,
+        style: Theme.of(context).dialogTheme.titleTextStyle,
+      ),
+    // return CustomDialogWidget(
+    //   title: titleText != null
+    //       ? Text(
+    //           titleText,
+    //           style: Theme.of(context).dialogTheme.titleTextStyle,
+    //         )
+    //       : null,
       content: contentText != null
           ? Text(
               contentText,
@@ -124,46 +139,20 @@ enum ListType {
 }
 
 class ClassicListDialogWidget<T> extends StatefulWidget {
-  ///Title text of the dialog
+
   final String titleText;
-
-  ///Data of the list
   final List<T> dataList;
-
-  ///Custom list item widget
   final Widget listItem;
-
-  ///Click callback of default list item
   final VoidCallback onListItemClick;
-
-  ///List type
   final ListType listType;
-
-  ///Where to place control relative to the text
   final ListTileControlAffinity controlAffinity;
-
-  ///The active color of radio or checkbox
   final Color activeColor;
-
-  ///Selected indexes when [listType] is [ListType.multiSelect]
   final List<int> selectedIndexes;
-
-  ///Selected index when [listType] is [ListType.singleSelect]
   final int selectedIndex;
-
-  ///Text of negative button, the left button at the bottom of dialog
   final String negativeText;
-
-  ///Text of positive button, the right button at the bottom of dialog
   final String positiveText;
-
-  ///Click callback of negative button
   final VoidCallback onNegativeClick;
-
-  ///Click callback of positive button
   final VoidCallback onPositiveClick;
-
-  ///Actions at the bottom of dialog, when this is set, [negativeText] [positiveText] [onNegativeClick] [onPositiveClick] will not work。
   final List<Widget> actions;
 
   ClassicListDialogWidget({
@@ -291,14 +280,19 @@ class ClassicListDialogWidgetState<T> extends State<ClassicListDialogWidget> {
         child: contentWidget,
       );
     } else {}
-
-    return CustomDialogWidget(
-      title: widget.titleText != null
-          ? Text(
-              widget.titleText,
-              style: Theme.of(context).dialogTheme.titleTextStyle,
-            )
-          : null,
+    
+      return CustomDialogWidget(
+      title: Text(
+        titleText,
+        style: Theme.of(context).dialogTheme.titleTextStyle,
+      ),
+    // return CustomDialogWidget(
+    //   title: widget.titleText != null
+    //       ? Text(
+    //           widget.titleText,
+    //           style: Theme.of(context).dialogTheme.titleTextStyle,
+    //         )
+    //       : null,
       contentPadding: EdgeInsets.all(0.0),
       content: contentWidget,
       actions: widget.actions ??
