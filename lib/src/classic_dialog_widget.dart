@@ -45,7 +45,7 @@ class ClassicGeneralDialogWidget extends StatelessWidget {
   final List<Widget> actions;
 
   ClassicGeneralDialogWidget({
-    this.titleText,
+    required this.titleText,
     this.contentText,
     this.actions,
     this.negativeText,
@@ -123,14 +123,6 @@ enum ListType {
   multiSelect,
 }
 
-///
-///created time: 2019-08-01 08:59
-///author linzhiliang
-///version 1.0
-///since
-///file name: classic_dialog_widget.dart
-///description: Classic dialog with list content
-///
 class ClassicListDialogWidget<T> extends StatefulWidget {
   ///Title text of the dialog
   final String titleText;
@@ -175,7 +167,7 @@ class ClassicListDialogWidget<T> extends StatefulWidget {
   final List<Widget> actions;
 
   ClassicListDialogWidget({
-    this.titleText,
+    required this.titleText,
     this.dataList,
     this.listItem,
     this.onListItemClick,
