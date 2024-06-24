@@ -353,7 +353,7 @@ class CustomDialogWidget extends StatelessWidget {
         super(key: key);
 
   final Key key;
-  final String? titleText;
+  final String titleText; // Make titleText non-nullable
   final Widget? title;
   final EdgeInsetsGeometry? titlePadding;
   final TextStyle? titleTextStyle;
