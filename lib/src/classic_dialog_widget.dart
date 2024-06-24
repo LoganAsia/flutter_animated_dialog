@@ -69,18 +69,18 @@ class ClassicGeneralDialogWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
-    return CustomDialogWidget(
-      title: Text(
-        titleText,
-        style: Theme.of(context).dialogTheme.titleTextStyle,
-      ),
     // return CustomDialogWidget(
-    //   title: titleText != null
-    //       ? Text(
-    //           titleText,
-    //           style: Theme.of(context).dialogTheme.titleTextStyle,
-    //         )
-    //       : null,
+    //   title: Text(
+    //     titleText,
+    //     style: Theme.of(context).dialogTheme.titleTextStyle,
+    //   ),
+    return CustomDialogWidget(
+      title: titleText != null
+          ? Text(
+              titleText,
+              style: Theme.of(context).dialogTheme.titleTextStyle,
+            )
+          : null,
       content: contentText != null
           ? Text(
               contentText,
@@ -281,18 +281,18 @@ class ClassicListDialogWidgetState<T> extends State<ClassicListDialogWidget> {
       );
     } else {}
     
-      return CustomDialogWidget(
-      title: Text(
-        titleText,
-        style: Theme.of(context).dialogTheme.titleTextStyle,
-      ),
-    // return CustomDialogWidget(
-    //   title: widget.titleText != null
-    //       ? Text(
-    //           widget.titleText,
-    //           style: Theme.of(context).dialogTheme.titleTextStyle,
-    //         )
-    //       : null,
+      // return CustomDialogWidget(
+      // title: Text(
+      //   titleText,
+      //   style: Theme.of(context).dialogTheme.titleTextStyle,
+      // ),
+    return CustomDialogWidget(
+      title: widget.titleText != null
+          ? Text(
+              widget.titleText,
+              style: Theme.of(context).dialogTheme.titleTextStyle,
+            )
+          : null,
       contentPadding: EdgeInsets.all(0.0),
       content: contentWidget,
       actions: widget.actions ??
